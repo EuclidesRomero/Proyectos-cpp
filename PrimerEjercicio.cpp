@@ -128,6 +128,7 @@ void imprimirRepetidos(Numero *&cab, Numero*&cab2){
  Numero *x, *y;
  x = NULL;
  y = NULL;
+ bool sw;
  
 
  		if(cab ==NULL && cab2 ==NULL){
@@ -145,19 +146,19 @@ void imprimirRepetidos(Numero *&cab, Numero*&cab2){
 
 		 while(x != NULL) {
 		    y =cab2;
-		    	while(y!=NULL){
+		      sw = false;
+		    	while(y!=NULL && !sw){
 		    		if(x->numero == y->numero){
-		    		cout<<"["<<x->numero<<"]"<<"\n";
-		    		 x = x->anterior;
-		    	     y = cab2;
+		    		cout<<"["<<x->numero<<"]"<<" ";
+		    	      sw = true;
 			   } 
-				else {
-			  	 y = y->siguiente;
-			    }
-		 		
+			   else {
+			   	y = y->siguiente;
+			   }
+			   	 
+			   		  	
 			}
-       
+          x = x->anterior;
 		}
-	 x = x->anterior;
 	}
 }
